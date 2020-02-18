@@ -1,0 +1,63 @@
+{
+  "name": "virtual-fleet",
+  "description": "A small CLI utility to create and manage balenaOS-in-container instances",
+  "version": "0.0.1",
+  "author": "Cameron Diver <cameron@balena.io>",
+  "bin": {
+    "virtual-fleet": "./bin/run"
+  },
+  "bugs": "https://github.com/balena-io-playground/virtual-fleet/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.14.0",
+    "@oclif/plugin-help": "^2.2.3",
+    "dockerode": "^3.1.0",
+    "lodash": "^4.17.15",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.22.2",
+    "@oclif/test": "^1.2.5",
+    "@types/chai": "^4.2.9",
+    "@types/dockerode": "^2.5.22",
+    "@types/lodash": "^4.14.149",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^10.17.15",
+    "chai": "^4.2.0",
+    "globby": "^10.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^14.1.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/balena-io-playground/virtual-fleet",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "virtual-fleet",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "balena-io-playground/virtual-fleet",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}

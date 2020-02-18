@@ -1,0 +1,3 @@
+[submodule "external/balenaos-in-container"]
+	path = external/balenaos-in-container
+	url = git@github.com:balena-os/balenaos-in-container
